@@ -10,7 +10,7 @@ services:
       HOSTNAME: ${HOSTNAME}
     ports:
       - "80:80"
-      - "443:443"
+      - "8443:8443"
     volumes:
       - wordpress:/var/www/html
     networks:
@@ -31,7 +31,7 @@ services:
       timeout: 20s
       retries: 10
     ports:
-      - "3306:3306"
+      - "83306:83306"
     volumes:
       - dbdata:/var/lib/mysql
     networks:
@@ -43,7 +43,7 @@ services:
     env_file: .env
     environment:
       PMA_HOST: database
-      PMA_PORT: 3306
+      PMA_PORT: 83306
       MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
     ports:
       - "8081:80"
